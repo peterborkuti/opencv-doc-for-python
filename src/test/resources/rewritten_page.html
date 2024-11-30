@@ -1,0 +1,423 @@
+<!-- HTML header for doxygen 1.8.6--><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/xhtml;charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.9.8" name="generator"/>
+    <title>OpenCV: Drawing Functions</title>
+    <link href="https://docs.opencv.org/4.x/opencv.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="https://docs.opencv.org/4.x/tabs.css" rel="stylesheet" type="text/css"/>
+    <script src="https://docs.opencv.org/4.x/jquery.js" type="text/javascript"></script>
+    <script src="https://docs.opencv.org/4.x/dynsections.js" type="text/javascript"></script>
+    <script src="https://docs.opencv.org/4.x/tutorial-utils.js" type="text/javascript"></script>
+    <link href="https://docs.opencv.org/4.x/search/search.css" rel="stylesheet" type="text/css"/>
+    <script src="https://docs.opencv.org/4.x/search/searchdata.js" type="text/javascript"></script>
+    <script src="https://docs.opencv.org/4.x/search/search.js" type="text/javascript"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript">window.MathJax = {
+        options: {
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        }, loader: {load: ['[tex]/ams']}, tex: {macros: {}, packages: ['base', 'configmacros', 'ams']}
+    };//<![CDATA[window.MathJax = {    loader: {load: ['[tex]/ams']},    tex: {        packages: {'[+]': ['ams']},        macros: {            matTT: [ "\\[ \\left|\\begin{array}{ccc} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{array}\\right| \\]", 9],            fork: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ \\end{array} \\right.", 4],            forkthree: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ \\end{array} \\right.", 6],            forkfour: ["\\left\\{ \\begin{array}{l l} #1 & \\mbox{#2}\\\\ #3 & \\mbox{#4}\\\\ #5 & \\mbox{#6}\\\\ #7 & \\mbox{#8}\\\\ \\end{array} \\right.", 8],            vecthree: ["\\begin{bmatrix} #1\\\\ #2\\\\ #3 \\end{bmatrix}", 3],            vecthreethree: ["\\begin{bmatrix} #1 & #2 & #3\\\\ #4 & #5 & #6\\\\ #7 & #8 & #9 \\end{bmatrix}", 9],            cameramatrix: ["#1 = \\begin{bmatrix} f_x & 0 & c_x\\\\ 0 & f_y & c_y\\\\ 0 & 0 & 1 \\end{bmatrix}", 1],            distcoeffs: ["(k_1, k_2, p_1, p_2[, k_3[, k_4, k_5, k_6 [, s_1, s_2, s_3, s_4[, \\tau_x, \\tau_y]]]]) \\text{ of 4, 5, 8, 12 or 14 elements}"],            distcoeffsfisheye: ["(k_1, k_2, k_3, k_4)"],            hdotsfor: ["\\dots", 1],            mathbbm: ["\\mathbb{#1}", 1],            bordermatrix: ["\\matrix{#1}", 1]        },        processEscapes: false    }};//]]></script>
+    <script async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-chtml.js"
+            type="text/javascript"></script>
+    <link href="https://docs.opencv.org/4.x/doxygen.css" rel="stylesheet" type="text/css"/>
+    <link href="https://docs.opencv.org/4.x/stylesheet.css" rel="stylesheet" type="text/css"/>
+</head>
+<body><h1><a href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga5126f47f883d730f633d74f07456c576">OPENCV
+    DOCUMENTATION LINK</a></h1>
+<h2 class="memtitle"><span class="permalink"><a
+        href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga5126f47f883d730f633d74f07456c576">◆ </a></span>putText()
+</h2>
+<div class="memitem">
+    <div class="memproto">
+        <table class="memname">
+            <tr>
+                <td class="memname">void cv::putText</td>
+                <td>(</td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#gaf77c9a14ef956c50c1efd4547f444e63">InputOutputArray</a> 
+                </td>
+                <td class="paramname"><em>img</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">const <a class="el"
+                                               href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga1f6634802eeadfd7245bc75cf3e216c2">String</a>
+                    &amp; 
+                </td>
+                <td class="paramname"><em>text</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">Point</a> 
+                </td>
+                <td class="paramname"><em>org</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>fontFace</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">double </td>
+                <td class="paramname"><em>fontScale</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga599fe92e910c027be274233eccad7beb">Scalar</a> 
+                </td>
+                <td class="paramname"><em>color</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>thickness</em> = <code>1</code>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>lineType</em> = <code><a class="el"
+                                                                   href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ggaf076ef45de481ac96e0ab3dc2c29a777a5d32eda7017db273a37f158e5b51442a">LINE_8</a></code>,
+                </td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">bool </td>
+                <td class="paramname"><em>bottomLeftOrigin</em> = <code>false</code> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>)</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table style="width:100%; white-space:nowrap;">
+            <caption>Python:</caption>
+            <tr>
+                <td style="width: 20px;"></td>
+                <td>cv.putText(</td>
+                <td class="paramname">img, text, org, fontFace, fontScale, color[, thickness[, lineType[,
+                    bottomLeftOrigin]]]
+                </td>
+                <td>) -&gt;</td>
+                <td>img</td>
+            </tr>
+        </table>
+    </div>
+    <div class="memdoc"><p><code>#include &lt;<a class="el"
+                                                 href="https://docs.opencv.org/4.x/d1/d4f/imgproc_2include_2opencv2_2imgproc_8hpp.html">opencv2/imgproc.hpp</a>&gt;</code>
+    </p>
+        <p>Draws a text string. </p>
+        <p>The function <a class="el"
+                           href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga5126f47f883d730f633d74f07456c576"
+                           title="Draws a text string.">cv::putText</a> renders the specified text string in the image.
+            Symbols that cannot be rendered using the specified font are replaced by question marks. See <a class="el"
+                                                                                                            href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga3d2abfcb995fd2db908c8288199dba82"
+                                                                                                            title="Calculates the width and height of a text string.">getTextSize</a>
+            for a text rendering code example.</p>
+        <dl class="params">
+            <dt>Parameters</dt>
+            <dd>
+                <table class="params">
+                    <tr>
+                        <td class="paramname">img</td>
+                        <td>Image.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">text</td>
+                        <td>Text string to be drawn.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">org</td>
+                        <td>Bottom-left corner of the text string in the image.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">fontFace</td>
+                        <td>Font type, see <a class="el"
+                                              href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga0f9314ea6e35f99bb23f29567fc16e11">HersheyFonts</a>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">fontScale</td>
+                        <td>Font scale factor that is multiplied by the font-specific base size.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">color</td>
+                        <td>Text color.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">thickness</td>
+                        <td>Thickness of the lines used to draw a text.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">lineType</td>
+                        <td>Line type. See <a class="el"
+                                              href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#gaf076ef45de481ac96e0ab3dc2c29a777">LineTypes</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">bottomLeftOrigin</td>
+                        <td>When true, the image data origin is at the bottom-left corner. Otherwise, it is at the
+                            top-left corner.
+                        </td>
+                    </tr>
+                </table>
+            </dd>
+        </dl>
+        <dl class="section examples">
+            <dt>Examples</dt>
+            <dd><a class="el" href="https://docs.opencv.org/4.x/d9/d73/samples_2cpp_2fitellipse_8cpp-example.html#a25">samples/cpp/fitellipse.cpp</a>.
+            </dd>
+        </dl>
+    </div>
+</div>
+<a id="ga07d2f74cadcf8e305e810ce8eed13bc9" name="ga07d2f74cadcf8e305e810ce8eed13bc9"></a>
+<h2 class="memtitle"><span class="permalink"><a
+        href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga07d2f74cadcf8e305e810ce8eed13bc9">◆ </a></span>rectangle()
+    <span class="overload">[1/2]</span></h2>
+<div class="memitem">
+    <div class="memproto">
+        <table class="memname">
+            <tr>
+                <td class="memname">void cv::rectangle</td>
+                <td>(</td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#gaf77c9a14ef956c50c1efd4547f444e63">InputOutputArray</a> 
+                </td>
+                <td class="paramname"><em>img</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">Point</a> 
+                </td>
+                <td class="paramname"><em>pt1</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">Point</a> 
+                </td>
+                <td class="paramname"><em>pt2</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">const <a class="el"
+                                               href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga599fe92e910c027be274233eccad7beb">Scalar</a>
+                    &amp; 
+                </td>
+                <td class="paramname"><em>color</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>thickness</em> = <code>1</code>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>lineType</em> = <code><a class="el"
+                                                                   href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ggaf076ef45de481ac96e0ab3dc2c29a777a5d32eda7017db273a37f158e5b51442a">LINE_8</a></code>,
+                </td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>shift</em> = <code>0</code> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>)</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table style="width:100%; white-space:nowrap;">
+            <caption>Python:</caption>
+            <tr>
+                <td style="width: 20px;"></td>
+                <td>cv.rectangle(</td>
+                <td class="paramname">img, pt1, pt2, color[, thickness[, lineType[, shift]]]</td>
+                <td>) -&gt;</td>
+                <td>img</td>
+            </tr>
+            <tr>
+                <td style="width: 20px;"></td>
+                <td>cv.rectangle(</td>
+                <td class="paramname">img, rec, color[, thickness[, lineType[, shift]]]</td>
+                <td>) -&gt;</td>
+                <td>img</td>
+            </tr>
+        </table>
+    </div>
+    <div class="memdoc"><p><code>#include &lt;<a class="el"
+                                                 href="https://docs.opencv.org/4.x/d1/d4f/imgproc_2include_2opencv2_2imgproc_8hpp.html">opencv2/imgproc.hpp</a>&gt;</code>
+    </p>
+        <p>Draws a simple, thick, or filled up-right rectangle. </p>
+        <p>The function <a class="el"
+                           href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga07d2f74cadcf8e305e810ce8eed13bc9"
+                           title="Draws a simple, thick, or filled up-right rectangle.">cv::rectangle</a> draws a
+            rectangle outline or a filled rectangle whose two opposite corners are pt1 and pt2.</p>
+        <dl class="params">
+            <dt>Parameters</dt>
+            <dd>
+                <table class="params">
+                    <tr>
+                        <td class="paramname">img</td>
+                        <td>Image.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">pt1</td>
+                        <td>Vertex of the rectangle.</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">pt2</td>
+                        <td>Vertex of the rectangle opposite to pt1 .</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">color</td>
+                        <td>Rectangle color or brightness (grayscale image).</td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">thickness</td>
+                        <td>Thickness of lines that make up the rectangle. Negative values, like <a class="el"
+                                                                                                    href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ggaf076ef45de481ac96e0ab3dc2c29a777a89c5f6beef080e6df347167f85e07b9e">FILLED</a>,
+                            mean that the function has to draw a filled rectangle.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">lineType</td>
+                        <td>Type of the line. See <a class="el"
+                                                     href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#gaf076ef45de481ac96e0ab3dc2c29a777">LineTypes</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="paramname">shift</td>
+                        <td>Number of fractional bits in the point coordinates.</td>
+                    </tr>
+                </table>
+            </dd>
+        </dl>
+    </div>
+</div>
+<a id="gac865734d137287c0afb7682ff7b3db23" name="gac865734d137287c0afb7682ff7b3db23"></a>
+<h2 class="memtitle"><span class="permalink"><a
+        href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#gac865734d137287c0afb7682ff7b3db23">◆ </a></span>rectangle()
+    <span class="overload">[2/2]</span></h2>
+<div class="memitem">
+    <div class="memproto">
+        <table class="memname">
+            <tr>
+                <td class="memname">void cv::rectangle</td>
+                <td>(</td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#gaf77c9a14ef956c50c1efd4547f444e63">InputOutputArray</a> 
+                </td>
+                <td class="paramname"><em>img</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype"><a class="el"
+                                         href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga11d95de507098e90bad732b9345402e8">Rect</a> 
+                </td>
+                <td class="paramname"><em>rec</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">const <a class="el"
+                                               href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga599fe92e910c027be274233eccad7beb">Scalar</a>
+                    &amp; 
+                </td>
+                <td class="paramname"><em>color</em>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>thickness</em> = <code>1</code>,</td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>lineType</em> = <code><a class="el"
+                                                                   href="https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ggaf076ef45de481ac96e0ab3dc2c29a777a5d32eda7017db273a37f158e5b51442a">LINE_8</a></code>,
+                </td>
+            </tr>
+            <tr>
+                <td class="paramkey"></td>
+                <td></td>
+                <td class="paramtype">int </td>
+                <td class="paramname"><em>shift</em> = <code>0</code> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>)</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table style="width:100%; white-space:nowrap;">
+            <caption>Python:</caption>
+            <tr>
+                <td style="width: 20px;"></td>
+                <td>cv.rectangle(</td>
+                <td class="paramname">img, pt1, pt2, color[, thickness[, lineType[, shift]]]</td>
+                <td>) -&gt;</td>
+                <td>img</td>
+            </tr>
+            <tr>
+                <td style="width: 20px;"></td>
+                <td>cv.rectangle(</td>
+                <td class="paramname">img, rec, color[, thickness[, lineType[, shift]]]</td>
+                <td>) -&gt;</td>
+                <td>img</td>
+            </tr>
+        </table>
+    </div>
+    <div class="memdoc"><p><code>#include &lt;<a class="el"
+                                                 href="https://docs.opencv.org/4.x/d1/d4f/imgproc_2include_2opencv2_2imgproc_8hpp.html">opencv2/imgproc.hpp</a>&gt;</code>
+    </p>
+        <p>This is an overloaded member function, provided for convenience. It differs from the above function only in
+            what argument(s) it accepts.</p>
+        <p>use <code>rec</code> parameter as alternative specification of the drawn rectangle: <code>r.tl() and
+            r.br()-<a class="el"
+                      href="https://docs.opencv.org/4.x/dc/d84/group__core__basic.html#ga1e83eafb2d26b3c93f09e8338bcab192">Point(1,1)</a></code>
+            are opposite corners </p></div>
+</div>
+</div><!-- contents --><!-- HTML footer for doxygen 1.8.6--><!-- start footer part -->
+<hr class="footer"/>
+<address class="footer"><small>Generated on Fri Nov 22 2024 23:09:36 for OpenCV by  <a
+        href="http://www.doxygen.org/index.html"><img alt="doxygen" class="footer"
+                                                      src="https://docs.opencv.org/4.x/doxygen.png"/></a> 1.9.8</small>
+</address>
+<script type="text/javascript">//<![CDATA[addTutorialsButtons();//]]></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+        data-cf-beacon='{"rayId":"8e7345c27c575ae8","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2024.10.5","token":"55698296dd8c4381b9a17117972ffe0c"}'
+        crossorigin="anonymous"></script>
+</body>
+</html>
