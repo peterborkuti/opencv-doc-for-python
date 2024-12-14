@@ -29,6 +29,14 @@ public class OpenCVDocumentationTarget implements DocumentationTarget {
         this.url = url;
     }
 
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
     @Nullable
     @Override
     public DocumentationResult computeDocumentation() {
@@ -45,7 +53,7 @@ public class OpenCVDocumentationTarget implements DocumentationTarget {
                 // Wrap the fetched HTML in a DocumentationResult.Documentation
                 return DocumentationResult.Companion.documentation(htmlContent);
             } catch (Exception e) {
-                log.error("Fetching url failed:" + url, e);
+                log.warn("Fetching url failed:" + url + " Message:" + e.getMessage());
                 return null;
             }
         });
@@ -63,6 +71,9 @@ public class OpenCVDocumentationTarget implements DocumentationTarget {
 
         if (anchor != null) {
             content = content.replaceFirst("<body>.*?"+anchor, bodyFirstLine);
+        }
+        else {
+            content = content.replaceFirst("<body>", bodyFirstLine);
         }
 
         return content;

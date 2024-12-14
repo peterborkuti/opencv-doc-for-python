@@ -1,6 +1,7 @@
 import org.jetbrains.changelog.Changelog
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.jetbrains.kotlin.ir.backend.js.compile
 
 plugins {
     id("java") // Java support
@@ -31,8 +32,10 @@ repositories {
 
 // Dependencies are managed with Gradle version catalog - read more: https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
-    //testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
+    //testImplementation("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    //testImplementation("org.mockito:mockito-junit-jupiter:5.7.0")
 
     //testImplementation(libs.junit)
 
@@ -49,8 +52,12 @@ dependencies {
         instrumentationTools()
         pluginVerifier()
         zipSigner()
-        testFramework(TestFrameworkType.JUnit5)
+        testFramework(TestFrameworkType.Platform)
     }
+}
+
+tasks.test {
+    useJUnitPlatform() // Ensure JUnit 5 is enabled
 }
 
 // Configure IntelliJ Platform Gradle Plugin - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-extension.html

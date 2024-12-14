@@ -8,6 +8,7 @@ import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,23 +21,41 @@ import java.util.stream.Collectors;
  */
 public class OpenCVDocumentationProvider implements PsiDocumentationTargetProvider {
     private static final Logger log = Logger.getInstance(OpenCVDocumentationProvider.class);
-    private static final String DOC_URL = "https://docs.opencv.org/4.x/";
+    private static final String DOC_URL = "https://docs.opencv.org/4.10.0/";
 
     private final Map<String, String> keywordUrlMap;
     public OpenCVDocumentationProvider() {
-        keywordUrlMap = IndexLoader.loadResource("/index.csv")
-                .stream()
-                .map(String::toLowerCase)
+        this(IndexLoader.loadResource("/index.csv"));
+    }
+
+    /**
+     * Only for testing
+     */
+    public OpenCVDocumentationProvider(String indexFilePath) {
+        this(IndexLoader.loadResource(indexFilePath));
+    }
+
+    /**
+     * Only for testing
+     */
+    public OpenCVDocumentationProvider(List<String> lines) {
+        keywordUrlMap = createKeywordUrlMap(lines);
+        log.warn("OpenCVDocumentationProvider created");
+    }
+
+    private Map<String, String> createKeywordUrlMap(List<String> lines) {
+        return lines.stream()
                 .map(s -> s.split(","))
                 .filter(a -> a.length > 1)
-                .collect(Collectors.toMap(s -> s[0], s -> s[1], (first, second) -> first));
-
-        log.warn("OpenCVDocumentationProvider created");
+                .collect(Collectors.toMap(s -> s[0].toLowerCase(), s -> s[1], (first, second) -> first));
     }
 
     @Override
     public @Nullable DocumentationTarget documentationTarget(@NotNull PsiElement element, @Nullable PsiElement originalElement) {
-        return getKeyWord(originalElement)
+        PsiElement psiElement = originalElement;
+        if (psiElement == null) psiElement = element;
+
+        return getKeyWord(psiElement)
                 .flatMap(kw -> getUrlFor(kw)
                         .map(url -> new OpenCVDocumentationTarget(kw, url))
                 )
