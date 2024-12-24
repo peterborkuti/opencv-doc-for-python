@@ -14,14 +14,12 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    <p>Opencv documentation for python - development version 2024-11-26</p>
+    <p>Opencv documentation for python</p>
     <p>When you hover your mouse over an OpenCV keyword or click Ctrl+Q this plugin
     retrieves the documentation from the OpenCV documentation site and displays it.</p>
 
     <p>Known bugs</p>
     <ul>
-    <li>The links in the documentation does not work. Use the first-line link to
-    go to the OpenCV documentation site</li>
     <li>You can check the bottom of the documentation but not the upper part. This is
     because I had to remove the html before the keyword</li>
     </ul>

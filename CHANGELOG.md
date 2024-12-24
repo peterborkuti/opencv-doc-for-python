@@ -18,3 +18,12 @@
 - Fix url lowercase
 - Add first-line url when no anchor found
 - Fix error handling when documentation url is wrong
+
+## [1.0.2] - 2024-12-24
+
+### Changed
+
+- compatibility: unlimited 'Until Build' setting
+- URLs in document works (go to website)
+- Christmas present: source is open
+- 

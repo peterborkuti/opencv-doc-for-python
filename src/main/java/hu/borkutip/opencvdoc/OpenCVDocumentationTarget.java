@@ -62,8 +62,8 @@ public class OpenCVDocumentationTarget implements DocumentationTarget {
     public String transformContent(String content, String url) {
         content = replaceConstantParts(content);
 
-        //content = replaceRelativeURIsWithAbsolute(content, url, "href");
-        //content = replaceRelativeURIsWithAbsolute(content, url, "src");
+        content = replaceRelativeURIsWithAbsolute(content, url, "href");
+        content = replaceRelativeURIsWithAbsolute(content, url, "src");
 
         String bodyFirstLine = BODY_OPENCV_DOC.replace("@", url);
         String anchor = getAnchor(url);
@@ -95,9 +95,8 @@ public class OpenCVDocumentationTarget implements DocumentationTarget {
         Pattern p = Pattern.compile(attribute + "=\"(.*?)\"");
         Matcher m = p.matcher(content);
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         while (m.find()) {
-
             try {
                 URI href = URI.create(m.group(1));
                 if (href.isAbsolute()) continue;

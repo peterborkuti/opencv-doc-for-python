@@ -1,7 +1,8 @@
 package hu.borkutip.opencvdoc;
 
-import com.intellij.platform.backend.documentation.DocumentationResult;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,11 +37,12 @@ class OpenCVDocumentationTargetTest {
     }
 
     //@Test
-    void replaceFileContent() {
+    void replaceFileContent() throws IOException {
         String html=String.join("\n", IndexLoader.loadResource("/page.html"));
         String url = "https://docs.opencv.org/4.x/d6/d6e/group__imgproc__draw.html#ga5126f47f883d730f633d74f07456c576";
         OpenCVDocumentationTarget target = new OpenCVDocumentationTarget("", url);
         String removedHtml = target.transformContent(html, url);
+        IndexLoader.saveResource("transformed_page", ".html", removedHtml);
 
         assertEquals("<body>Y", removedHtml);
     }
