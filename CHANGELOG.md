@@ -26,4 +26,9 @@
 - compatibility: unlimited 'Until Build' setting
 - URLs in document works (go to website)
 - Christmas present: source is open
-- 
+
+## [1.0.3] - 2024-12-29
+
+### Changed
+
+- URLs in document do not work: it caused issue in PyCharm
